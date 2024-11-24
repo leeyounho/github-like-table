@@ -231,7 +231,7 @@ function TableRow({
                     isCopied,
                     showCopied,
                     onCopy,
-                    replacements
+                    // replacements
                   }: {
   data: [string, string]
   isCopied: boolean
@@ -242,11 +242,12 @@ function TableRow({
   const [copied, setCopied] = useState(false)
 
   const copyToClipboard = () => {
-    let textToCopy = data[1];
-    Object.entries(replacements).forEach(([key, value]) => {
-      textToCopy = textToCopy.replace(new RegExp(key, 'g'), value);
-    });
-    navigator.clipboard.writeText(textToCopy);
+    // let textToCopy = data[1];
+    // Object.entries(replacements).forEach(([key, value]) => {
+    //   textToCopy = textToCopy.replace(new RegExp(key, 'g'), value);
+    // });
+    // navigator.clipboard.writeText(textToCopy);
+    navigator.clipboard.writeText(data[1]);
     onCopy();
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -348,8 +349,8 @@ function ReplacementsDialog({
                 </div>
             ))}
             <div className="flex justify-between items-center">
-              <Button onClick={handleAddNew}>Add New Replacement</Button>
-              <Button onClick={handleSave}>Save Changes</Button>
+              <Button onClick={handleAddNew} className="px-[19px]">Add New Replacement</Button>
+              <Button onClick={handleSave} className="px-11">Save Changes</Button>
             </div>
           </div>
         </DialogContent>
