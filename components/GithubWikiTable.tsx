@@ -5,9 +5,15 @@ import { ChevronDown, ChevronRight, Copy } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 
-interface TableData {
+// export interface TableData {
+//   title: string
+//   rows: [string, string][]
+// }
+
+export interface TableData {
   title: string
   rows: [string, string][]
+  replacements?: { [key: string]: string }
 }
 
 interface GithubWikiTableProps {
@@ -77,7 +83,7 @@ function CollapsibleTable({
             setCopiedRows(newCopiedRows);
           }}
         >
-          표시 지우기
+          Clear
         </Button>
       </div>
       {isOpen && (

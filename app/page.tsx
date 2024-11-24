@@ -1,9 +1,4 @@
-import GithubWikiTable from '@/components/GithubWikiTable'
-
-interface TableData {
-  title: string
-  rows: [string, string][]
-}
+import GithubWikiTable, {TableData} from '@/components/GithubWikiTable'
 
 const sampleData : TableData[] = [
   {
@@ -15,6 +10,11 @@ const sampleData : TableData[] = [
       ['Commit changes', 'git commit -m "Your commit message"'],
       ['Push changes', 'git push origin <branch-name>'],
     ],
+    replacements: {
+      '<repository-url>': 'https://github.com/username/repo.git',
+      '<branch-name>': 'feature/new-feature',
+      '<commit-message>': 'Add new feature'
+    }
   },
   {
     title: 'npm Commands',
@@ -41,6 +41,9 @@ function longFunction() {
 }
       `],
     ],
+    replacements: {
+      '<package-name>': 'react'
+    }
   },
 ]
 
